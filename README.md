@@ -8,7 +8,7 @@
 
 2. 그룹 프로젝트에서 ORM으로 `prisma`를 사용하기로 결정했기 때문에 `typeorm`이 아닌 `prisma`를 사용했다.
 
-## Nest.js에 MySQl + prisma 사용하기
+## Nest.js에 MySQL + prisma 사용하기
 
 ### I. MySQL + prisma 셋업
 
