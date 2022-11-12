@@ -166,7 +166,7 @@ export class BoardService {
 
 controller layer의 `deleteBoard` 함수를 async 함수로 만들지 않으면 controller layer가 종료되고 서버 응답까지 마치고 난 뒤에야 error가 발생하기 때문에 exception filter에서 error handling을 할 수 없게 된다.
 
-<b>(권장) 해결책 1</b>
+<b>해결책</b>
 
 controller layer의 `deleteBoard` 함수에서 `Promise`를 반환한다.
 
