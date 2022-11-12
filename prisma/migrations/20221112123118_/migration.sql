@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `board` MODIFY `status` ENUM('PUBLIC', 'PRIVATE') NOT NULL DEFAULT 'PUBLIC';
