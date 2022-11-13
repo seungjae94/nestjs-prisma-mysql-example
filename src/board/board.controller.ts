@@ -9,13 +9,16 @@ import {
   UsePipes,
   ValidationPipe,
   ParseIntPipe,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { Board, BoardStatus } from '@prisma/client';
 import { BoardService } from './board.service';
-import { CreateBoardDto } from './dtos/create-board.dto';
+import { CreateBoardDto } from './dto/create-board.dto';
 import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe';
 
 @Controller('board')
+@UseGuards(AuthGuard('jwt'))
 export class BoardController {
   constructor(private boardService: BoardService) {}
 
