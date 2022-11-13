@@ -16,4 +16,6 @@
 
 - [인가 기능 구현](/docs/DOC3.md)
 
+- [기타](/docs/DOC4.md)
+
 - [Trouble shooting](/docs/TROUBLE.md)
