@@ -14,4 +14,6 @@
 
 - [인증 기능 추가하기](/docs/DOC2.md)
 
+- [인가 기능 구현](/docs/DOC3.md)
+
 - [Trouble shooting](/docs/TROUBLE.md)

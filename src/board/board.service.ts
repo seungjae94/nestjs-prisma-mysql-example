@@ -1,10 +1,11 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Board, BoardStatus, User } from '@prisma/client';
 import { CreateBoardDto } from './dto/create-board.dto';
 
 @Injectable()
 export class BoardService {
+  private logger = new Logger('BoardService');
   constructor(private prisma: PrismaService) {}
 
   async getBoard(id: number): Promise<Board> {
@@ -43,6 +44,8 @@ export class BoardService {
     if (res.count === 0) {
       throw new NotFoundException(`There is no your board with id ${id}`);
     }
+
+    this.logger.verbose(`User ${user.username} deleted a post`);
   }
 
   async updateBoardStatus(id: number, status: BoardStatus): Promise<Board> {
