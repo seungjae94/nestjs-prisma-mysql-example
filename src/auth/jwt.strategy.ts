@@ -11,7 +11,6 @@ interface JwtPayload {
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private prisma: PrismaService) {
-    console.log('wow');
     super({
       // 서버에서 토큰을 검증할 때 사용
       secretOrKey: process.env.JWT_SECRET,
@@ -25,8 +24,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     const user = await this.prisma.user.findUnique({
       where: { username },
     });
-
-    console.log(username, user);
 
     if (!user) throw new UnauthorizedException();
 
