@@ -188,9 +188,9 @@ async signup(authCredentialsDto: AuthCredentialsDto): Promise<void> {
 #### 전체 프로세스
 
 로그인 할 때 JWT 토큰 발행
-→ 클라이언트가 인가가 필요한 데이터를 요청
+→ 클라이언트가 로그인이 필요한 데이터를 요청
 → 서버에서 request header에 포함된 토큰을 꺼내 검증
-→ 검증 성공시 요청한 데이터를 응답
+→ 검증 성공시 요청한 데이터로 응답
 
 #### 1. 모듈 설치
 
@@ -358,15 +358,15 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
 <b>Guard</b>
 
-- 인가 관련 미들웨어
-- 해당 경로로 진입할 수 있는 사람과 그렇지 않은 사람을 구분해준다
+- 인증/인가 관련 미들웨어
+- 해당 경로로 진입할 수 있는 요청과 그렇지 않은 요청을 구분해준다
 
 `AuthGuard`는 다음과 같은 일을 대신 해준다.
 
 > request에서 토큰을 꺼내 검증한다
 > 토큰이 유효할 경우 `JwtStrategy`의 `validate` 함수를 실행한 결과를 request에 추가해준다
 
-<a href="https://jay-ji.tistory.com/94">`AuthGuard`가 어떻게 `JwtStrategy`의 `validate` 함수를 실행하는지</a>에 대해서는 일단 깊게 고민하지 말고 넘어가도록 하자.
+<a href="https://jay-ji.tistory.com/94">`AuthGuard`가 어떻게 `JwtStrategy`의 `validate` 함수를 실행하는지</a>에 대해서는 일단 신경쓰지 말고 넘어가도록 하자.
 
 `AuthModule`에서 `AuthGuard`를 사용하기 위해서는 `PassportModule`을 import하고 `JwtStrategy`를 Provider로 등록해야 한다.
 
